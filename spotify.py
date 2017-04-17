@@ -10,7 +10,8 @@ def get_user_info()
 	"""
 	#example headers :  H = {'Authorization': 'Bearer BQC2XM...5kzLo'}
 	headers = {'Authorization': 'Bearer : {}'.format(get_acces_token())}
-
+	USER_URL = '{}/v1/me'.format(ENDPOINT)
+	
 	response = requests.get(USER_URL, headers=headers)
 
 	# response example
