@@ -8,7 +8,7 @@ ENDPOINT = 'https://api.spotify.com'
 def get_user_info()
 	"""
 	"""
-	#example headers :  H = {'Authorization': 'Bearer BQC2XMtIjpWM2s6vck_NYaMS864hlH-EAwn791Biwp6qMl2aJvI-l4LaoJqeSVdxatEICCS-w_XqAPCkc_uuWoIqpTiN6TXOhsJiqO1OudYk49c8EIgRr9-noeUmcMHqo8s4lH-OjK6h622xe-rX7x2zBeCQaLwbUqu5kzLo'}
+	#example headers :  H = {'Authorization': 'Bearer BQC2XM...5kzLo'}
 	headers = {'Authorization': 'Bearer : {}'.format(get_acces_token())}
 
 	response = requests.get(USER_URL, headers=headers)
@@ -28,6 +28,7 @@ def get_user_info()
 	 u'type': u'user',
 	 u'uri': u'spotify:user:oussaidslimane'}
 	"""
-
-	return response.json()
+	if response.status_code == 200:
+		return True, response.json()
+	return False, None
 
